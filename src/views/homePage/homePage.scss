@@ -1,0 +1,16 @@
+@import '@/assets/colors';
+
+.action-buttons{
+  height: 100vh;
+  line-height: 100vh;
+
+  button {
+    height: 20vh;
+    width: 20vh;
+    background-color: $purple;
+    border-color: $purple;
+    font-size: 1em;
+    margin: 16px;
+    font-weight: 700;
+  }
+}
