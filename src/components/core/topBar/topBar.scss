@@ -1,0 +1,13 @@
+@import '@/assets/colors.scss';
+
+#topbar{
+  background-color: $purple;
+}
+
+#logo{
+  width: 100px;
+}
+
+#nav-collapse{
+  justify-content: flex-end;
+}
