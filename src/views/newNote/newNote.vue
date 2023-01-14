@@ -1,18 +1,22 @@
 <template>
 	<div>
-		<div class="text-center">
-			<video 
-				id="camera"
-				ref="camera"
-				autoplay>
+		<b-button class="action-button" v-on:click="startScan()">Start</b-button>
+		<div class="camera-container text-center">
+			<video
+				id="camera-view"
+				ref="camera">
 			</video>
 
-			<canvas 
+			<!--<canvas 
 				id="canvas"
-				ref="canvas">
-			</canvas>
+				ref="canvas"
+				:height="337"
+				:width="450">
+			</canvas>-->
 			<br/>
 			<span>Aproxime o QR code do seu cupom fiscal!</span>
+
+			<b-button class="action-button" v-on:click="stopScan()">Stop</b-button>
 		</div>
 	</div>
 </template>
