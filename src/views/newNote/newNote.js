@@ -12,22 +12,9 @@ export default {
     }
   },
 
-  mounted() {
-    //this.startScan();
-    /*const isInStandaloneMode = 'standalone' in window.navigator && window.navigator['standalone'];
-    if (this.plt.is('ios') && isInStandaloneMode()) {
-      console.log('I am a an iOS PWA!');
-      // E.g. hide the scan functionality!
-    }*/
-  },
-
   methods: {
     async startScan() {
       this.scanActive = true;
-
-      /*const constraints =  (window.constraints = {
-        video: { facingMode: 'environment' }
-      });*/
 
       const stream = await navigator.mediaDevices.getUserMedia({
         video: { facingMode: 'environment' }
@@ -36,17 +23,6 @@ export default {
       this.$refs.camera.srcObject = stream;
       this.$refs.camera.setAttribute('playsinline', true);
       this.$refs.camera.play();
-      /*.then(stream => {
-        this.$refs.camera.srcObject = stream;
-        // Required for Safari 
-        this.$refs.camera.setAttribute('playsinline', true);
-        setTimeout(() => {
-          this.takePhoto();
-        }, 1000);
-      }).catch(error => {
-        alert(error);
-        console.log("There was a error: " + error);
-      });*/
     },
 
     stopScan(){
@@ -61,9 +37,6 @@ export default {
     takePhoto(){
       if(this.scanActive){
         const context = this.$refs.canvas.getContext('2d');
-        //console.log('video w: ' + this.$refs.camera.clientWidth);
-        //console.log('video h: ' + this.$refs.camera.clientHeight);
-        //console.log('canvas w: ' + this.$refs.canvas.clientWidth);
         context.drawImage(this.$refs.camera, 0, 0, 450, 337);
 
         const imageData = context.getImageData(
