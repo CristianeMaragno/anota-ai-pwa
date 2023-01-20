@@ -1,9 +1,12 @@
+@import '@/assets/colors.scss';
+
 .camera-container {
   width: 100%;
 }
 
 .action-button{
   width: 100%;
+  background-color: $purple;
 }
 
 #camera-view{

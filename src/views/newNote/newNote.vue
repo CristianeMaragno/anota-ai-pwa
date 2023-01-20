@@ -1,22 +1,24 @@
 <template>
 	<div>
-		<b-button class="action-button" v-on:click="startScan()">Start</b-button>
+		<b-button class="action-button" v-on:click="readNewNote()">Ler QR code</b-button>
+		<br/>
+		<span v-if="scanActive">Aproxime o QR code do seu cupom fiscal!</span>
+		<br/>
+
 		<div class="camera-container text-center">
 			<video
+				v-if="scanResult === null"
 				id="camera-view"
 				ref="camera">
 			</video>
 
-			<!--<canvas 
-				id="canvas"
+			<canvas 
+				id="canvas-view"
 				ref="canvas"
-				:height="337"
-				:width="450">
-			</canvas>-->
-			<br/>
-			<span>Aproxime o QR code do seu cupom fiscal!</span>
+				hidden>
+			</canvas>
 
-			<b-button class="action-button" v-on:click="stopScan()">Stop</b-button>
+			{{ response }}
 		</div>
 	</div>
 </template>

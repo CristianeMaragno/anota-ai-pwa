@@ -1,15 +1,27 @@
 <template>
   <topBar></topBar>
-  <router-view/>
+  <userPage v-if="authenticated"></userPage>
+  <landingPage v-else></landingPage>
 </template>
 
 <script>
-//import MainPage from './components/mainPage/mainPage.vue'
+import topBar from "@/components/core/topBar/topBar.vue";
+import UserPage from '@/views/userPage/userPage.vue'
+import LandingPage from '@/views/landingPage/landingPage.vue';
 
 export default {
   name: 'App',
+
   components: {
-    //MainPage
+    topBar,
+    UserPage,
+    LandingPage
+  },
+
+  data(){
+    return{
+      authenticated: true
+    }
   }
 }
 </script>

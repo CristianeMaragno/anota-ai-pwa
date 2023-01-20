@@ -8,8 +8,8 @@
 			<b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 			<b-collapse id="nav-collapse" is-nav>
 				<b-navbar-nav class="ml-auto">
-					<b-nav-item href="#">Login</b-nav-item>
-					<b-nav-item href="#">Sign in</b-nav-item>
+					<b-nav-item v-on="signUp()">Sign up</b-nav-item>
+					<b-nav-item v-on="signIn()">Sign in</b-nav-item>
 				</b-navbar-nav>
 			</b-collapse>
 		</b-navbar>

@@ -1,3 +1,13 @@
 export default {
-    name: 'topBar'
+    name: 'topBar',
+
+    methods: {
+        signUp(){
+
+        },
+
+        signIn(){
+            
+        }
+    }
 }
