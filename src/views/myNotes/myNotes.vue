@@ -1,6 +1,8 @@
 <template>
-	<div>
-    Oi
+	<div class="text-center">
+    <div v-for="note in notes" :key="note.id">
+			<div>{{ note.place + "  " + note.totalPrice}}</div>
+		</div>
 	</div>
 </template>
 

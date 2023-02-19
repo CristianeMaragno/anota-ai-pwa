@@ -1,9 +1,11 @@
 import jsQR from 'jsqr';
-import axios from 'axios';
+import { request } from '@/helpers/request';
 
 export default {
 
   name: 'newNote',
+
+  mixins: [request],
 
   data() {
     return {
@@ -64,33 +66,16 @@ export default {
         this.scanActive = false;
         this.scanResult = code.data;
         this.stopScan();
-        this.readNewNote();
+        this.openNewNote();
       }else{
         requestAnimationFrame(this.scan.bind(this));
       }
     },
 
-    readNewNote(){
-      const config = {
-        headers:{
-          'Content-Type': 'application/json'
-        }
-      };
-      const url = "https://anotaai-dev-xld2jmqk5q-uc.a.run.app/anotai";
-      
-      const data ={
-        url: 'https://sat.sef.sc.gov.br/nfce/consulta?p=42221117890776000399650010000535621116968755|2|1|2|207B6E647C83799E54546745ACBDBED6055A93C3',//this.scanResult,
-        email: 'cristianerodriguesmaragno@gmail.com',
-        premium: true
-      }
-
-      axios.post(url, data, config)
-      .then(function (response) {
-        console.log(response);
-        this.response = response;
-      })
-      .catch(function (error) {
-        console.log(error);
+    openNewNote(){
+      localStorage.setItem("url", this.scanResult);
+      this.$router.push({
+        path: 'note-items'
       });
     },
 
@@ -101,7 +86,6 @@ export default {
       tracks.forEach(track => {
         track.stop();
       });
-      //this.$refs.camera.stop();
     }
   },
 

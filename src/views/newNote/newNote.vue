@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<b-button class="action-button" v-on:click="readNewNote()">Ler QR code</b-button>
+		<b-button class="action-button" v-on:click="startScan()">Ler QR code</b-button>
 		<br/>
 		<span v-if="scanActive">Aproxime o QR code do seu cupom fiscal!</span>
 		<br/>
